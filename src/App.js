@@ -24,9 +24,9 @@ const intErrs = {
 
 const App = () => {
 
-  const {values, setValues} = useState(intVals);
-  const {errors, setErrors} = useState(intErrs);
-  const {orders, setOrders} = useState([]);
+  const [values, setValues] = useState(intVals);
+  const [errors, setErrors] = useState(intErrs);
+  const [orders, setOrders] = useState([]);
 
   const validate = (name, value) => {
     yup.reach(formSchema, name)
@@ -56,7 +56,7 @@ const App = () => {
       <Link id="order-pizza" to="/pizza">Order Pizza</Link>
 
       <Routes>
-        <Route path="/" element={<App/>}/>
+        <Route path="/home" element={<App />}/>
         <Route path="/pizza" element={<Pizzaform values={values} change={change} submit={submit} errors={errors}/>}/>
       </Routes>
 
